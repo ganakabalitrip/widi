@@ -1,0 +1,32 @@
+#chatbot {
+  bottom: 1.5rem;
+  max-height: 82vh; /* maksimal tinggi 82% viewport */
+  min-height: 40vh; /* minimal tinggi 40% viewport */
+  height: 60vh;     /* tinggi default 60% viewport */
+  display: flex;
+  flex-direction: column;
+}
+
+
+#chatbot-messages {
+  overflow-y: auto;
+  flex-grow: 1;
+  max-height: calc(70vh - 120px); /* sesuaikan dengan tinggi header & form */
+}
+
+/* Pastikan header dan form punya ukuran tetap supaya tidak melebihi */
+#chatbot-header {
+  flex-shrink: 0;
+}
+
+#chatbot-form {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  #chatbot {
+    height: 70vh;   /* lebih tinggi di HP kecil */
+    max-height: 85vh;
+    min-height: 50vh;
+  }
+}
