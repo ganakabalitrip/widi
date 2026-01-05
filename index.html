@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIDI BALI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ubud: {
+                            green: '#2E8B57',
+                            yellow: '#FFD700',
+                            brown: '#8B4513',
+                            light: '#F5F5DC'
+                        }
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: ' translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        pulseScale: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'fade-in-delay': 'fadeIn 0.8s ease-out 0.2s forwards',
+                        'fade-in-delay-2': 'fadeIn 0.8s ease-out 0.4s forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-scale': 'pulseScale 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-ubud-green text-white py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+        <div class="text-xl font-bold">WIDI BALI</div>
+        <div class="hidden md:flex space-x-8">
+            <button onclick="scrollToSection('home')" class="hover:text-ubud-yellow transition">ホーム</button>
+            <button onclick="scrollToSection('about')" class="hover:text-ubud-yellow transition">私たちについて</button>
+            <button onclick="scrollToSection('services')" class="hover:text-ubud-yellow transition">サービス</button>
+            <button onclick="scrollToSection('contact')" class="hover:text-ubud-yellow transition">お問い合わせ</button>
+        </div>
+        <button onclick="openBookingPopup()" class="bg-ubud-yellow text-ubud-green px-4 py-2 rounded-full font-semibold hover:bg-opacity-90 transition">予約</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-gradient-to-r from-ubud-green to-ubud-brown text-white overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">バリを地元の心で発見しよう</h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-delay">100％アúbud出身のドライバーによる本格的なプライベートツアー</p>
+            <div class="space-y-4 animate-fade-in-delay-2">
+                <button onclick="scrollToSection('services')" class="bg-ubud-yellow text-ubud-green px-8 py-4 rounded-full text-lg font-bold hover:bg-opacity-90 transition transform hover:scale-105 hover:animate-pulse-scale">ツアーを見る</button>
+                <p class="text-sm mt-4">仲介業者なし、公正な価格、パーソナライズされた体験</p>
+            </div>
+        </div>
+        <!-- Floating decorative elements -->
+        <div class="absolute top-1/4 left-10 w-16 h-16 bg-ubud-yellow rounded-full opacity-20 animate-float"></div>
+        <div class="absolute bottom-1/3 right-20 w-24 h-24 bg-ubud-yellow rounded-full opacity-10 animate-float animation-delay-1000"></div>
+        <div class="absolute top-1/3 right-1/4 w-20 h-20 bg-ubud-yellow rounded-full opacity-15 animate-float animation-delay-500"></div>
+    </section>
+
+    <!-- Tagline Options -->
+    <section class="py-12 bg-ubud-light text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-4">私たちの約束</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-white px-6 py-3 rounded-full shadow-md animate-fade-in">パーソナライズされたプライベートツアー</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-md animate-fade-in-delay">観光客の知らない場所のローカル知識</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-md animate-fade-in-delay-2">地域コミュニティへの支援</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white -mt-19">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+              <div class="md:w-1/2 flex justify-center">
+    <img 
+        src="https://uploads.onecompiler.io/43c72bhcy/449pa7dgv/driver%202.jfif" 
+        alt="Ubud Landscape"
+        class="rounded-xl shadow-lg animate-fade-in"
+        style="
+            width: 90vw;
+            max-height: 350px;
+            object-fit: cover;
+            object-position: center;
+        "
+    >
+</div>
+
+
+</div>
+
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-ubud-green animate-fade-in-delay">WIDI BALIについて</h2>
+                    <p class="mb-4 text-lg leading-relaxed animate-fade-in-delay-2">私たちはバリの文化の中心地、アúbudの地元です。家族経営の企業として、旅行者が私たちの島の魅力を本格的に体験できるように、私たちの愛着と知識をもってつなぎます。</p>
+                    <p class="mb-4 text-lg leading-relaxed animate-fade-in-delay-3">すべてのドライバーは100％地元で、アúbudの伝統に深く根ざし、バリの隠れた景勝地や現地の物語、心温まる接客を共有する熱意を持っています。</p>
+                    <p class="text-lg leading-relaxed animate-fade-in-delay-4">私たちを選ぶことで、運転手だけでなく、バリの特徴を知る地元ガイドが、通常の観光地を超えた体験をお届けします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Services / Tours Slider -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-ubud-green">私たちの特別ツアー</h2>
+            
+            <div class="splide" id="tours-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide animate-fade-in">
+                            <div class="bg-ubud-light rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="文化巡り" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">文化遺産巡り</h3>
+                                    <p class="text-gray-600 mb-4">アúbudの聖なる寺院、伝統的な市場、地元工芸品を知識豊かなガイドとともに探求します。</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-ubud-green">5時間</span>
+                                        <span class="font-bold text-ubud-green">75ドル</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide animate-fade-in-delay">
+                            <div class="bg-ubud-light rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="自然冒険" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">自然とウェルネスリトリート</h3>
+                                    <p class="text-gray-600 mb-4">バリの緑豊かな風景、稲田、滝、有機農場を発見します。</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-ubud-green">8時間</span>
+                                        <span class="font-bold text-ubud-green">120ドル</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide animate-fade-in-delay-2">
+                            <div class="bg-ubud-light rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="食事体験" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">伝統的な食事と料理教室</h3>
+                                    <p class="text-gray-600 mb-4">地元市場の訪問と実践的な料理レッスンを通して、バリの食文化を体験します。</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-ubud-green">6時間</span>
+                                        <span class="font-bold text-ubud-green">95ドル</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide animate-fade-in-delay-2">
+                            <div class="bg-ubud-light rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="食事体験" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">スピリチュアルツアーと瞑想セッション</h3>
+                                    <p class="text-gray-600 mb-4">地元市場の訪問と実践的な料理レッスンを通して、バリの食文化を体験します。</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-ubud-green">2日間</span>
+                                        <span class="font-bold text-ubud-green">95ドル</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                        <li class="splide__slide animate-fade-in-delay-3">
+                            <div class="bg-ubud-light rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ビーチと夕焼け" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">ビーチと夕焼けアドベンチャ</h3>
+                                    <p class="text-gray-600 mb-4">素晴らしいビーチでリラックスし、夕焼けの景色を見ながら伝統的な舞踊パフォーマンスを楽しめます。</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-ubud-green">7時間</span>
+                                        <span class="font-bold text-ubud-green">100ドル</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <!-- Why Choose Us Section -->
+    <section class="py-16 bg-ubud-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-ubud-green">WIDI BALIを選んでくれる理由</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300 animate-fade-in">
+                    <div class="text-4xl mb-4">👨</div>
+                    <h3 class="text-xl font-bold mb-4">100％地元ドライバー</h3>
+                    <p class="text-gray-600">すべてのドライバーはアúbudの地元住民であり、島全体の深い知識と個人的なつながりを持っています。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300 animate-fade-in-delay">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold mb-4">公正な価格</h3>
+                    <p class="text-gray-600">仲介業者なし。地元ドライバーとの直接連絡により透明性があり合理的な料金を提供します。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300 animate-fade-in-delay-2">
+                    <div class="text-4xl mb-4">🌟</div>
+                    <h3 class="text-xl font-bold mb-4">パーソナライズされた体験</h3>
+                    <p class="text-gray-600">あなたの関心に合わせてカスタムの行程を構成し、毎回特別な体験を提供します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Trust & Experience Message -->
+    <section class="py-16 bg-ubud-green text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6">2015年から信頼されている旅行者</h2>
+                <p class="text-xl mb-8">8年以上の経験を通じて国際的な訪問者に安心・信頼できる、記念すべきバリ体験を提供しています。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="animate-fade-in">
+                        <div class="text-4xl font-bold mb-2">500+</div>
+                        <p>満足した国際旅行者</p>
+                    </div>
+                    <div class="animate-fade-in-delay">
+                        <div class="text-4xl font-bold mb-2">98%</div>
+                        <p>再来店客</p>
+                    </div>
+                    <div class="animate-fade-in-delay-2">
+                        <div class="text-4xl font-bold mb-2">24時間</div>
+                        <p>地元サポート</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-ubud-green">あなたのバリ旅行の準備ができましたか？</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">今すぐプライベートツアーを予約して、地元の目線でバリを発見しましょう。アúbudの本質を体験してください。</p>
+            <button onclick="scrollToSection('contact')" class="bg-ubud-yellow text-ubud-green px-8 py-4 rounded-full text-xl font-bold hover:bg-opacity-90 transition transform hover:scale-105 hover:animate-pulse-scale">ツアーを今すぐ予約</button>
+            <p class="mt-4 text-gray-600">仲介業者なし、公正な価格、確実な地元体験</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ubud-brown text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">WIDI BALI</h3>
+                    <p class="text-ubud-light">2015年よりバリツアー</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="mb-2">📍 アúbud、バリ、インドネシア</p>
+                    <p class="mb-2">📞 +62 812 3456 7890</p>
+                    <p>✉️ info@widi-bali.com</p>
+                </div>
+            </div>
+            <div class="border-t border-ubud-yellow mt-8 pt-8 text-center text-ubud-light">
+                <p>&copy; 2023 WIDI BALI. 全著作権所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Popup -->
+    <div id="bookingPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6 relative">
+            <button onclick="closeBookingPopup()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 text-ubud-green">ツアーを予約</h2>
+            <form id="bookingForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-1">氏名</label>
+                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">メールアドレス</label>
+                    <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">電話番号</label>
+                    <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">選択されたツアー</label>
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent">
+                        <option value="">ツアーを選択</option>
+                        <option value="cultural">文化遺産巡り</option>
+                        <option value="nature">自然とウェルネスリトリート</option>
+                        <option value="food">伝統的な食事と料理教室</option>
+                        <option value="beach">ビーチと夕焼けアドベンチャ</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">日付</label>
+                    <input type="date" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">人数</label>
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent">
+                        <option value="1">1人</option>
+                        <option value="2">2人</option>
+                        <option value="3">3人</option>
+                        <option value="4">4人</option>
+                        <option value="5+">5人以上</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-1">特別リクエスト</label>
+                    <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ubud-green focus:border-transparent"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-ubud-green text-white py-3 rounded-lg font-bold hover:bg-opacity-90 transition">予約リクエストを送信</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Splide slider
+        document.addEventListener('DOMContentLoaded', function() {
+            new Splide('#tours-slider', {
+                perPage: 2,
+                gap: '1rem',
+                arrows: true,
+                pagination: false,
+                breakpoints: {
+                    768: {
+                        perPage: 1,
+                    },
+                },
+            }).mount();
+        });
+
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Booking popup functions
+        function openBookingPopup() {
+            document.getElementById('bookingPopup').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeBookingPopup() {
+            document.getElementById('bookingPopup').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+            const popup = document.getElementById('bookingPopup');
+            if (event.target === popup) {
+                closeBookingPopup();
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ご予約ありがとうございます！すぐにご連絡いたします。');
+            closeBookingPopup();
+            this.reset();
+        });
+    </script>
+    
+    
+    <!-- Chatbot Widget -->
+<div id="chatbot" class="fixed bottom-5 right-5 w-80 max-w-full bg-white shadow-lg rounded-lg flex flex-col overflow-hidden z-50 font-sans">
+    <div id="chatbot-header" class="bg-ubud-green text-white p-4 flex justify-between items-center cursor-pointer select-none">
+        <div class="flex items-center gap-2">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Chatbot Icon" class="w-6 h-6">
+            <span class="font-bold">WIDI BALIチャット</span>
+        </div>
+        <button id="chatbot-close" class="text-white text-xl leading-none">&times;</button>
+    </div>
+    <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-ubud-light"></div>
+    <form id="chatbot-form" class="p-4 bg-white border-t border-gray-300 flex gap-2">
+        <input type="text" id="chatbot-input" placeholder="ツアー、予約、情報について聞いてください..." class="flex-grow border border-gray-300 rounded-md px-3 py-2 focus:outline-ubud-green focus:ring-2 focus:ring-ubud-green" required>
+        <button type="submit" class="bg-ubud-green text-white px-4 rounded-md hover:bg-ubud-green/90 transition">送信</button>
+    </form>
+</div>
+<button id="chatbot-toggle" class="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-ubud-green shadow-lg flex justify-center items-center cursor-pointer hover:bg-ubud-green/90 transition select-none" aria-label="Chatを開く">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.66 9.66 0 01-4.255-.949L3 20l1.295-4.086A7.962 7.962 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+  </svg>
+</button>
+
+
+<audio id="notification-sound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+<script src="bot.js"></script>
+
+</body>
+</html>
